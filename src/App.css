@@ -1,169 +1,132 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+body {
+  margin: 0;
+  background: #020617;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-html{
-  scroll-behavior:smooth;
+.app {
+  min-height: 100vh;
+  background: #020617;
 }
 
-body{
-  font-family:'Poppins',sans-serif;
-  background:#020617;
-  overflow-x:hidden;
+.header {
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  padding: 16px 40px;
 }
 
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-  width:10px;
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-::-webkit-scrollbar-track{
-  background:#020617;
+.profile-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 }
 
-::-webkit-scrollbar-thumb{
-  background:#2563eb;
-  border-radius:20px;
+.logo-title {
+  color: #3b82f6;
+  font-size: 42px;
+  margin: 0;
 }
 
-/* ANIMATIONS */
-
-@keyframes float{
-  0%{
-    transform:translateY(0px);
-  }
-
-  50%{
-    transform:translateY(-10px);
-  }
-
-  100%{
-    transform:translateY(0px);
-  }
+.logo-subtitle {
+  color: #cbd5e1;
+  margin: 0;
 }
 
-@keyframes glow{
-  0%{
-    box-shadow:0 0 20px rgba(37,99,235,.2);
-  }
-
-  50%{
-    box-shadow:0 0 40px rgba(37,99,235,.5);
-  }
-
-  100%{
-    box-shadow:0 0 20px rgba(37,99,235,.2);
-  }
+.hero {
+  padding: 60px 40px;
 }
 
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+.hero h2 {
+  font-size: 56px;
+  margin: 0 0 20px;
 }
 
-/* HERO */
-
-.hero-title{
-  animation:fadeUp 1s ease;
+.hero span,
+.level-card h4,
+.admin-section h3 {
+  color: #3b82f6;
 }
 
-.hero-card{
-  animation:float 5s ease-in-out infinite;
+.hero p {
+  color: #cbd5e1;
+  font-size: 24px;
 }
 
-/* PREMIUM CARDS */
-
-.premium-card{
-  position:relative;
-  overflow:hidden;
-  transition:.4s;
+.levels-section {
+  padding: 30px 40px 70px;
 }
 
-.premium-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    130deg,
-    transparent,
-    rgba(255,255,255,.05),
-    transparent
-  );
-
-  transform:translateX(-100%);
-  transition:.8s;
+.levels-section h3 {
+  text-align: center;
+  font-size: 44px;
+  margin-bottom: 40px;
 }
 
-.premium-card:hover::before{
-  transform:translateX(100%);
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
-.premium-card:hover{
-  transform:translateY(-12px) scale(1.03);
-  border-color:#3b82f6 !important;
-  animation:glow 2s infinite;
+.level-card {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 24px;
+  padding: 28px;
 }
 
-/* BUTTONS */
-
-.premium-btn{
-  transition:.3s;
-  position:relative;
-  overflow:hidden;
+.level-card h4 {
+  font-size: 30px;
+  margin: 10px 0;
 }
 
-.premium-btn::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:rgba(255,255,255,.15);
-  transition:.5s;
+.level-card a {
+  color: #93c5fd;
+  text-decoration: none;
+  font-size: 20px;
 }
 
-.premium-btn:hover::before{
-  left:100%;
+.icon {
+  font-size: 48px;
 }
 
-.premium-btn:hover{
-  transform:translateY(-3px) scale(1.03);
+.admin-section {
+  padding: 50px 40px;
 }
 
-/* GLASS EFFECT */
-
-.glass{
-  backdrop-filter:blur(20px);
-  background:rgba(15,23,42,.65);
+.admin-section h3 {
+  text-align: center;
+  font-size: 42px;
 }
 
-/* TEXT GLOW */
-
-.blue-glow{
-  text-shadow:
-    0 0 10px rgba(59,130,246,.5),
-    0 0 30px rgba(59,130,246,.3);
-}
-#root {
-  width: 100%;
+.admin-buttons {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
-section,
-main,
-footer,
-header {
-  width: 100%;
+.admin-buttons button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 18px;
+  padding: 24px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.footer {
+  border-top: 1px solid #1e293b;
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
 }
