@@ -16,7 +16,7 @@ export default function Login() {
       return;
     }
 
-    window.location.href = "/admin";
+    window.location.href = "/?page=admin";
   };
 
   return (

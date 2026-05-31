@@ -132,7 +132,7 @@ export default function Student() {
           </div>
         </div>
 
-        <a href="/login" className="bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-xl font-bold">
+        <a href="/?page=login" className="bg-blue-600 hover:bg-blue-700 px-5 py-3 rounded-xl font-bold">
           Espace Prof
         </a>
       </header>

@@ -1,20 +1,16 @@
 import Login from "./Login";
 import Admin from "./Admin";
 import Student from "./Student";
-import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
-  const path = window.location.pathname;
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get("page");
 
-  if (path === "/admin") {
-    return (
-      <ProtectedRoute>
-        <Admin />
-      </ProtectedRoute>
-    );
+  if (page === "admin") {
+    return <Admin />;
   }
 
-  if (path === "/login") {
+  if (page === "login") {
     return <Login />;
   }
 
