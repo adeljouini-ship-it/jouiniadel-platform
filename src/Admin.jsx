@@ -15,28 +15,45 @@ export default function Admin() {
   const [sectionStudent, setSectionStudent] = useState("math");
   const [students, setStudents] = useState([]);
 
-  const sectionsParNiveau = {
-    "1ere": [{ label: "Math", value: "math" }],
-    "2eme": [
-      { label: "Science", value: "science" },
-      { label: "Info", value: "info" },
-      { label: "Économie", value: "eco" },
-    ],
-    "3eme": [
-      { label: "Science", value: "science" },
-      { label: "Math", value: "math" },
-      { label: "Info", value: "info" },
-      { label: "Économie", value: "eco" },
-      { label: "Technique", value: "technique" },
-    ],
-    bac: [
-      { label: "Math", value: "math" },
-      { label: "Science", value: "science" },
-      { label: "Info", value: "info" },
-      { label: "Économie", value: "eco" },
-      { label: "Technique", value: "technique" },
-    ],
-  };
+ const sectionsParNiveau = {
+  "7eme": [
+    { label: "Math", value: "math" },
+  ],
+
+  "8eme": [
+    { label: "Math", value: "math" },
+  ],
+
+  "9eme": [
+    { label: "Math", value: "math" },
+  ],
+
+  "1ere": [
+    { label: "Math", value: "math" },
+  ],
+
+  "2eme": [
+    { label: "Science", value: "science" },
+    { label: "Info", value: "info" },
+    { label: "Économie", value: "eco" },
+  ],
+
+  "3eme": [
+    { label: "Science", value: "science" },
+    { label: "Math", value: "math" },
+    { label: "Info", value: "info" },
+    { label: "Économie", value: "eco" },
+    { label: "Technique", value: "technique" },
+  ],
+
+  bac: [
+    { label: "Math", value: "math" },
+    { label: "Science", value: "science" },
+    { label: "Info", value: "info" },
+    { label: "Économie", value: "eco" },
+    { label: "Technique", value: "technique" },
+  ],
+};
 
   const folderPath = `${niveau}/${section}/${typeDoc}`;
 
@@ -259,7 +276,9 @@ export default function Admin() {
           value={niveau}
           onChange={(e) => setNiveau(e.target.value)}
           className="bg-slate-800 p-4 rounded-2xl text-xl"
-        >
+        ><option value="7eme">7ème</option>
+<option value="8eme">8ème</option>
+<option value="9eme">9ème</option>
           <option value="1ere">1ère</option>
           <option value="2eme">2ème</option>
           <option value="3eme">3ème</option>
@@ -333,10 +352,13 @@ export default function Admin() {
           onChange={(e) => setLevelStudent(e.target.value)}
           className="w-full bg-slate-800 p-4 rounded-2xl text-xl mb-4"
         >
-          <option value="1ere">1ère</option>
-          <option value="2eme">2ème</option>
-          <option value="3eme">3ème</option>
-          <option value="bac">Bac</option>
+         <option value="7eme">7ème</option>
+<option value="8eme">8ème</option>
+<option value="9eme">9ème</option>
+<option value="1ere">1ère</option>
+<option value="2eme">2ème</option>
+<option value="3eme">3ème</option>
+<option value="bac">Bac</option>
         </select>
 
         <select
