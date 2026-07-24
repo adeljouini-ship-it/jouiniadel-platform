@@ -1300,7 +1300,7 @@ export default function TableauBlanc() {
         />
       </div>
 
-      <CanvasBoard
+      
         containerRef={containerRef}
         canvasFondRef={canvasFondRef}
         canvasRef={canvasRef}
@@ -1320,7 +1320,25 @@ export default function TableauBlanc() {
         inputTexteRef={inputTexteRef}
         validerTexte={validerTexte}
         annulerTexte={annulerTexte}
-      />
+         <CanvasBoard
+  containerRef={containerRef}
+  canvasFondRef={canvasFondRef}
+  canvasRef={canvasRef}
+  outil={outil}
+  dessine={dessine}
+  commencerDessin={commencerDessin}
+  dessiner={dessiner}
+  terminerDessin={terminerDessin}
+  texteEdition={texteEdition}
+  texte={texte}
+  setTexte={setTexte}
+  positionTexte={positionTexte}
+  inputTexteRef={inputTexteRef}
+  validerTexte={validerTexte}
+  annulerTexte={annulerTexte}
+  couleur={couleur}
+  epaisseur={epaisseur}
+/>
      
     </div>
   );
