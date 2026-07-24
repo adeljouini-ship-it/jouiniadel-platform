@@ -112,13 +112,13 @@ export default function Student() {
       return;
     }
 
-    const { data: studentData, error } = await supabase
-      .from("students")
-      .select("*")
-      .eq("phone", phone.trim())
-      .eq("code", code.trim())
-      .eq("active", true)
-      .single();
+    const { data: studentData, error } = await supabase.rpc(
+  "login_student",
+  {
+    p_phone: phone.trim(),
+    p_code: code.trim(),
+  }
+);
 
     if (error || !studentData) {
       alert("Téléphone ou code incorrect.");
