@@ -1,6 +1,7 @@
 import Login from "./Login";
 import Admin from "./Admin";
 import Student from "./Student";
+import TableauBlanc from "./TableauBlanc";
 
 function App() {
   const params = new URLSearchParams(window.location.search);
@@ -12,6 +13,10 @@ function App() {
 
   if (page === "login") {
     return <Login />;
+  }
+
+  if (page === "tableau") {
+    return <TableauBlanc />;
   }
 
   return <Student />;
