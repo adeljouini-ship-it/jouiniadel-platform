@@ -17,6 +17,9 @@ export default function CanvasBoard({
   inputTexteRef,
   validerTexte,
   annulerTexte,
+
+  couleur,
+  epaisseur,
 }) {
   return (
     <div
@@ -26,10 +29,10 @@ export default function CanvasBoard({
         width: "100%",
         height: "calc(100vh - 170px)",
         minHeight: "500px",
-        background: "#ffffff",
+        background: "#fff",
         borderRadius: "12px",
         overflow: "hidden",
-        boxShadow: "0 2px 12px rgba(0,0,0,0.1)",
+        boxShadow: "0 2px 12px rgba(0,0,0,.1)",
       }}
     >
       <canvas
@@ -37,7 +40,6 @@ export default function CanvasBoard({
         style={{
           position: "absolute",
           inset: 0,
-          display: "block",
           width: "100%",
           height: "100%",
           pointerEvents: "none",
@@ -50,19 +52,13 @@ export default function CanvasBoard({
         onPointerMove={dessiner}
         onPointerUp={terminerDessin}
         onPointerCancel={terminerDessin}
-        onContextMenu={(event) => event.preventDefault()}
         style={{
           position: "absolute",
           inset: 0,
-          display: "block",
           width: "100%",
           height: "100%",
-          cursor:
-            outil === "gomme"
-              ? "cell"
-              : "crosshair",
           touchAction: "none",
-          userSelect: "none",
+          cursor: outil === "gomme" ? "cell" : "crosshair",
         }}
       />
 
@@ -74,33 +70,23 @@ export default function CanvasBoard({
         inputRef={inputTexteRef}
         onValider={validerTexte}
         onAnnuler={annulerTexte}
+        couleur={couleur}
+        taille={Math.max(18, epaisseur * 5)}
       />
 
       {dessine && (
         <span
           style={{
             position: "absolute",
-            right: "14px",
-            bottom: "10px",
-            padding: "5px 9px",
-            borderRadius: "6px",
-            background: "rgba(255,255,255,0.85)",
-            fontSize: "13px",
-            color: "#6b7280",
-            pointerEvents: "none",
+            right: 15,
+            bottom: 10,
+            background: "rgba(255,255,255,.9)",
+            padding: "5px 10px",
+            borderRadius: 6,
+            fontSize: 13,
           }}
         >
-          {outil === "ligne"
-            ? "Ligne en cours…"
-            : outil === "rectangle"
-            ? "Rectangle en cours…"
-            : outil === "cercle"
-            ? "Cercle en cours…"
-            : outil === "fleche"
-            ? "Flèche en cours…"
-            : outil === "texte"
-            ? "Texte…"
-            : "Dessin en cours…"}
+          Dessin...
         </span>
       )}
     </div>
