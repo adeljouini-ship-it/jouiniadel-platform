@@ -95,7 +95,7 @@ export default function TextEditor({
           border: "2px solid #2563eb",
           borderRadius: "5px",
           background: "#ffffff",
-          color,
+         color: couleur,
           fontSize: `${taille}px`,
           fontFamily: "Arial",
           lineHeight: 1.2,
