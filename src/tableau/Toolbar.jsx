@@ -14,11 +14,12 @@ export default function Toolbar({
   effacerTout,
   telechargerImage,
   retournerAccueil,
-
   texteGras,
   setTexteGras,
   texteItalique,
   setTexteItalique,
+  tailleTexte,
+  setTailleTexte,
 }) {
   const bouton = (nom, icone, texte) => (
     <button
@@ -53,8 +54,7 @@ export default function Toolbar({
         padding: "12px",
         background: "#ffffff",
         borderRadius: "14px",
-        boxShadow:
-          "0 2px 10px rgba(0,0,0,.08)",
+        boxShadow: "0 2px 10px rgba(0,0,0,.08)",
       }}
     >
       <button
@@ -84,42 +84,78 @@ export default function Toolbar({
       {bouton("ligne", "➖", "Ligne")}
       {bouton("fleche", "➡️", "Flèche")}
       {bouton("texte", "📝", "Texte")}
-      <button
-  type="button"
-  onClick={() => setTexteGras(!texteGras)}
-  style={{
-    padding: "8px 12px",
-    borderRadius: "10px",
-    border: "1px solid #d1d5db",
-    cursor: "pointer",
-    background: texteGras
-      ? "#e0e7ff"
-      : "#ffffff",
-    fontWeight: "bold",
-  }}
->
-  B
-</button>
 
-<button
-  type="button"
-  onClick={() =>
-    setTexteItalique(!texteItalique)
-  }
-  style={{
-    padding: "8px 12px",
-    borderRadius: "10px",
-    border: "1px solid #d1d5db",
-    cursor: "pointer",
-    background: texteItalique
-      ? "#e0e7ff"
-      : "#ffffff",
-    fontStyle: "italic",
-  }}
->
-  I
-</button>
-      {bouton("rectangle", "▭", "Rectangle")}
+      <button
+        type="button"
+        onClick={() =>
+          setTexteGras(!texteGras)
+        }
+        style={{
+          padding: "8px 12px",
+          borderRadius: "10px",
+          border: "1px solid #d1d5db",
+          cursor: "pointer",
+          background: texteGras
+            ? "#e0e7ff"
+            : "#ffffff",
+          fontWeight: "bold",
+        }}
+      >
+        B
+      </button>
+
+      <button
+        type="button"
+        onClick={() =>
+          setTexteItalique(!texteItalique)
+        }
+        style={{
+          padding: "8px 12px",
+          borderRadius: "10px",
+          border: "1px solid #d1d5db",
+          cursor: "pointer",
+          background: texteItalique
+            ? "#e0e7ff"
+            : "#ffffff",
+          fontStyle: "italic",
+        }}
+      >
+        I
+      </button>
+
+      <label
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+        }}
+      >
+        Taille texte
+
+        <select
+          value={tailleTexte}
+          onChange={(event) =>
+            setTailleTexte(
+              Number(event.target.value)
+            )
+          }
+        >
+          <option value={16}>16 px</option>
+          <option value={20}>20 px</option>
+          <option value={24}>24 px</option>
+          <option value={32}>32 px</option>
+          <option value={40}>40 px</option>
+          <option value={48}>48 px</option>
+          <option value={64}>64 px</option>
+        </select>
+      </label>
+
+      {bouton(
+        "rectangle",
+        "▭",
+        "Rectangle"
+      )}
+
       {bouton("cercle", "⭕", "Cercle")}
       {bouton("gomme", "🧽", "Gomme")}
 

@@ -18,8 +18,11 @@ export default function CanvasBoard({
   validerTexte,
   annulerTexte,
 
-  couleur,
-  epaisseur,
+ couleur,
+epaisseur,
+tailleTexte,
+texteGras,
+texteItalique,
 }) {
   return (
     <div
@@ -71,7 +74,9 @@ export default function CanvasBoard({
         onValider={validerTexte}
         onAnnuler={annulerTexte}
         couleur={couleur}
-        taille={Math.max(18, epaisseur * 5)}
+       taille={tailleTexte}
+gras={texteGras}
+italique={texteItalique}
       />
 
       {dessine && (

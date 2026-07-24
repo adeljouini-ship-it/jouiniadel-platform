@@ -172,7 +172,7 @@ export default function TableauBlanc() {
     useState("#000000");
   const [epaisseur, setEpaisseur] =
     useState(4);
-
+const [tailleTexte, setTailleTexte] = useState(24);
   const [texteGras, setTexteGras] =
     useState(false);
 
@@ -813,7 +813,7 @@ export default function TableauBlanc() {
 
     const contexte = canvas.getContext("2d");
     const position = positionTexteCanvasRef.current;
-    const taillePolice = Math.max(18, epaisseur * 5);
+    const taillePolice = tailleTexte;
 
     contexte.save();
     contexte.globalCompositeOperation =
@@ -1312,12 +1312,12 @@ export default function TableauBlanc() {
           retournerAccueil={
             retournerAccueil
           }
-          texteGras={texteGras}
-          setTexteGras={setTexteGras}
-          texteItalique={texteItalique}
-          setTexteItalique={
-            setTexteItalique
-          }
+         texteGras={texteGras}
+setTexteGras={setTexteGras}
+texteItalique={texteItalique}
+setTexteItalique={setTexteItalique}
+tailleTexte={tailleTexte}
+setTailleTexte={setTailleTexte}
         />
       </div>
 
@@ -1338,8 +1338,11 @@ export default function TableauBlanc() {
   inputTexteRef={inputTexteRef}
   validerTexte={validerTexte}
   annulerTexte={annulerTexte}
-  couleur={couleur}
-  epaisseur={epaisseur}
+ couleur={couleur}
+epaisseur={epaisseur}
+tailleTexte={tailleTexte}
+texteGras={texteGras}
+texteItalique={texteItalique}
 />
      
     </div>

@@ -10,6 +10,8 @@ export default function TextEditor({
   onAnnuler,
   couleur = "#000000",
   taille = 24,
+  gras = false,
+  italique = false,
 }) {
   useEffect(() => {
     if (!visible) {
@@ -67,6 +69,8 @@ export default function TextEditor({
 
         fontSize: `${taille}px`,
         fontFamily: "Arial",
+        fontWeight: gras ? "bold" : "normal",
+        fontStyle: italique ? "italic" : "normal",
         lineHeight: 1.2,
 
         outline: "none",
