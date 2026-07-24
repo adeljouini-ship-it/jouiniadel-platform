@@ -802,7 +802,37 @@ export default function TableauBlanc() {
 
     const position =
       obtenirPosition(event);
+if (outil === "texte") {
+  const contenu = window.prompt(
+    "Écrivez le texte à ajouter :"
+  );
 
+  if (!contenu || !contenu.trim()) {
+    return;
+  }
+
+  contexte.save();
+  contexte.globalCompositeOperation = "source-over";
+  contexte.globalAlpha = 1;
+  contexte.fillStyle = couleur;
+  contexte.font = `${Math.max(
+    18,
+    epaisseur * 5
+  )}px Arial`;
+
+  contexte.textBaseline = "top";
+
+  contexte.fillText(
+    contenu.trim(),
+    position.x,
+    position.y
+  );
+
+  contexte.restore();
+
+  enregistrerEtat();
+  return;
+}
     try {
       canvas.setPointerCapture(
         event.pointerId
@@ -1251,6 +1281,7 @@ export default function TableauBlanc() {
           terminerDessin
         }
       />
+     
     </div>
   );
 }
