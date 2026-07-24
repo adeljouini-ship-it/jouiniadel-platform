@@ -1,3 +1,5 @@
+import TextEditor from "./TextEditor";
+
 export default function CanvasBoard({
   containerRef,
   canvasFondRef,
@@ -7,6 +9,14 @@ export default function CanvasBoard({
   commencerDessin,
   dessiner,
   terminerDessin,
+
+  texteEdition,
+  texte,
+  setTexte,
+  positionTexte,
+  inputTexteRef,
+  validerTexte,
+  annulerTexte,
 }) {
   return (
     <div
@@ -47,10 +57,23 @@ export default function CanvasBoard({
           display: "block",
           width: "100%",
           height: "100%",
-          cursor: outil === "gomme" ? "cell" : "crosshair",
+          cursor:
+            outil === "gomme"
+              ? "cell"
+              : "crosshair",
           touchAction: "none",
           userSelect: "none",
         }}
+      />
+
+      <TextEditor
+        visible={texteEdition}
+        valeur={texte}
+        setValeur={setTexte}
+        position={positionTexte}
+        inputRef={inputTexteRef}
+        onValider={validerTexte}
+        onAnnuler={annulerTexte}
       />
 
       {dessine && (
@@ -70,10 +93,14 @@ export default function CanvasBoard({
           {outil === "ligne"
             ? "Ligne en cours…"
             : outil === "rectangle"
-              ? "Rectangle en cours…"
-              : outil === "cercle"
-                ? "Cercle en cours…"
-                : "Dessin en cours…"}
+            ? "Rectangle en cours…"
+            : outil === "cercle"
+            ? "Cercle en cours…"
+            : outil === "fleche"
+            ? "Flèche en cours…"
+            : outil === "texte"
+            ? "Texte…"
+            : "Dessin en cours…"}
         </span>
       )}
     </div>
