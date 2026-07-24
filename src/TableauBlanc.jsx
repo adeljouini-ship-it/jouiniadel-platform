@@ -178,7 +178,8 @@ export default function TableauBlanc() {
 
   const [texteItalique, setTexteItalique] =
     useState(false);
-
+const [tailleTexte, setTailleTexte] =
+  useState(24);
   const [outil, setOutil] =
     useState("stylo");
   const [fond, setFond] =
@@ -1318,6 +1319,8 @@ export default function TableauBlanc() {
           setTexteItalique={
             setTexteItalique
           }
+          tailleTexte={tailleTexte}
+setTailleTexte={setTailleTexte}
         />
       </div>
 
