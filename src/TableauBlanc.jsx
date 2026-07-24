@@ -172,8 +172,13 @@ export default function TableauBlanc() {
     useState("#000000");
   const [epaisseur, setEpaisseur] =
     useState(4);
-    const [texteGras, setTexteGras] = useState(false);
-const [texteItalique, setTexteItalique] = useState(false);
+
+  const [texteGras, setTexteGras] =
+    useState(false);
+
+  const [texteItalique, setTexteItalique] =
+    useState(false);
+
   const [outil, setOutil] =
     useState("stylo");
   const [fond, setFond] =
@@ -816,13 +821,14 @@ const [texteItalique, setTexteItalique] = useState(false);
     contexte.globalAlpha = 1;
     contexte.fillStyle = couleur;
     const style = [
-  texteItalique ? "italic" : "",
-  texteGras ? "bold" : "",
-]
-  .filter(Boolean)
-  .join(" ");
+      texteItalique ? "italic" : "",
+      texteGras ? "bold" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
 
-contexte.font = `${style} ${taillePolice}px Arial`.trim();
+    contexte.font =
+      `${style} ${taillePolice}px Arial`.trim();
     contexte.textBaseline = "top";
     contexte.fillText(
       contenu,
@@ -1306,11 +1312,13 @@ contexte.font = `${style} ${taillePolice}px Arial`.trim();
           retournerAccueil={
             retournerAccueil
           }
+          texteGras={texteGras}
+          setTexteGras={setTexteGras}
+          texteItalique={texteItalique}
+          setTexteItalique={
+            setTexteItalique
+          }
         />
-        texteGras={texteGras}
-setTexteGras={setTexteGras}
-texteItalique={texteItalique}
-setTexteItalique={setTexteItalique}
       </div>
 
       
