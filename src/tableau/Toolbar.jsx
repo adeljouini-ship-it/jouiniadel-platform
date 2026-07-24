@@ -14,6 +14,11 @@ export default function Toolbar({
   effacerTout,
   telechargerImage,
   retournerAccueil,
+
+  texteGras,
+  setTexteGras,
+  texteItalique,
+  setTexteItalique,
 }) {
   const bouton = (nom, icone, texte) => (
     <button
@@ -79,6 +84,41 @@ export default function Toolbar({
       {bouton("ligne", "➖", "Ligne")}
       {bouton("fleche", "➡️", "Flèche")}
       {bouton("texte", "📝", "Texte")}
+      <button
+  type="button"
+  onClick={() => setTexteGras(!texteGras)}
+  style={{
+    padding: "8px 12px",
+    borderRadius: "10px",
+    border: "1px solid #d1d5db",
+    cursor: "pointer",
+    background: texteGras
+      ? "#e0e7ff"
+      : "#ffffff",
+    fontWeight: "bold",
+  }}
+>
+  B
+</button>
+
+<button
+  type="button"
+  onClick={() =>
+    setTexteItalique(!texteItalique)
+  }
+  style={{
+    padding: "8px 12px",
+    borderRadius: "10px",
+    border: "1px solid #d1d5db",
+    cursor: "pointer",
+    background: texteItalique
+      ? "#e0e7ff"
+      : "#ffffff",
+    fontStyle: "italic",
+  }}
+>
+  I
+</button>
       {bouton("rectangle", "▭", "Rectangle")}
       {bouton("cercle", "⭕", "Cercle")}
       {bouton("gomme", "🧽", "Gomme")}
