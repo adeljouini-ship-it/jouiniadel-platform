@@ -21,6 +21,18 @@ export default function Toolbar({
   tailleTexte,
   setTailleTexte,
 }) {
+  const couleursRapides = [
+    "#000000",
+    "#ffffff",
+    "#ef4444",
+    "#f97316",
+    "#eab308",
+    "#22c55e",
+    "#3b82f6",
+    "#8b5cf6",
+    "#92400e",
+  ];
+
   const bouton = (nom, icone, texte) => (
     <button
       type="button"
@@ -158,6 +170,47 @@ export default function Toolbar({
 
       {bouton("cercle", "⭕", "Cercle")}
       {bouton("gomme", "🧽", "Gomme")}
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+          flexWrap: "wrap",
+        }}
+      >
+        <span>Palette</span>
+
+        {couleursRapides.map(
+          (couleurRapide) => (
+            <button
+              key={couleurRapide}
+              type="button"
+              aria-label={`Choisir la couleur ${couleurRapide}`}
+              title={couleurRapide}
+              onClick={() =>
+                setCouleur(couleurRapide)
+              }
+              style={{
+                width: "26px",
+                height: "26px",
+                padding: 0,
+                borderRadius: "50%",
+                border:
+                  couleur === couleurRapide
+                    ? "3px solid #2563eb"
+                    : "1px solid #9ca3af",
+                background: couleurRapide,
+                cursor: "pointer",
+                boxShadow:
+                  couleurRapide === "#ffffff"
+                    ? "inset 0 0 0 1px #d1d5db"
+                    : "none",
+              }}
+            />
+          )
+        )}
+      </div>
 
       <label>
         Couleur{" "}
